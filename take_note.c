@@ -44,6 +44,7 @@ Kiểu dữ liệu:
         
             str[strcspn(str, "\n")] = 0; // loại bỏ kí tự xuống dòng
             hoặc str[strcspn(str, "\n")] = '\0'; // loại bỏ kí tự xuống dòng
+            hàm strcspn() có cú pháp: strcspn(tên_chuỗi, "kí_tự_cần_tìm")
             -> lệnh strcspn() trả về vị trí của kí tự cần tìm trong chuỗi
             
         => cần thêm thư viện #include <string.h> để dùng hàm strcspn
@@ -53,6 +54,13 @@ Kiểu dữ liệu:
             int n;
             scanf("%d", &n);
             getchar(); // loại bỏ kí tự xuống dòng còn thừa trong bộ đệm
+
+        hàm strcmp(): so sánh 2 chuỗi kí tự
+            cú pháp: strcmp(tên_chuỗi1, tên_chuỗi2)
+            nếu 2 chuỗi bằng nhau thì trả về 0
+            nếu chuỗi1 > chuỗi2 thì trả về số dương
+            nếu chuỗi1 < chuỗi2 thì trả về số âm
+            hàm strcmp so sánh theo tiêu chí bảng mã ASCII nếu khác nhau ở kí tự đầu tiên thì không so sánh các kí tự sau nữa
 
 Toán tử:
     
@@ -234,6 +242,12 @@ Mảng một chiều:
     
     khi xây dựng một hàm về mảng ở ngoài hàm main nhưng ta thay đổi các giá trị hoặc địa chỉ trong đó thì
     các giá trị hoặc địa chỉ trong mảng ở hàm main cũng sẽ bị thay đổi theo
+
+    có thể dùng mảng để lưu trữ chuỗi kí tự
+        ví dụ:
+            char str[100]; // khai báo mảng kí tự có kích thước 100
+            fgets(str, sizeof(str), stdin); // nhập chuỗi kí tự có dấu cách
+            printf("%s", str); // in chuỗi kí tự vừa nhập
     
 
 Con trỏ:
@@ -300,6 +314,22 @@ Cấp phát động:
         -> vì malloc sẽ trả về kiểu void* nên cần ép kiểu về kiểu dữ liệu muốn trả về
 
         free(p); // giải phóng bộ nhớ đã cấp phát động cho biến con trỏ p
+
+
+    realloc dùng để thay đổi kích thước của vùng nhớ đã cấp phát động
+        
+    cú pháp:
+        tên_biến* = (kiểu dữ liệu *)realloc(tên_biến, kích thước_mới);
+        đối với struct thì nên dùng một biến tạm để tránh mất dữ liệu cũ
+        ví dụ:
+            struct studentInformation *temp;
+            temp = (struct studentInformation*)realloc(S, new_size);
+            if(temp != NULL){
+                S = temp;
+            }else{
+                // xử lý khi cấp phát lại thất bại
+            }
+            -> trong đó S là con trỏ ban đầu đã cấp phát động
 
 
 Cấu trúc:
