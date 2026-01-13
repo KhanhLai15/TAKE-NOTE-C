@@ -77,6 +77,13 @@ Toán tử:
         += có thể thay bằng: +, -, *, /, %
         ví dụ: a += b tương đương a = a + b
 
+    * Toán tử ?:
+        cú pháp: điều_kiện ? biểu_thức1 : biểu_thức2
+        nếu điều_kiện đúng thì trả về giá trị của biểu_thức1, ngược lại trả về giá trị của biểu_thức2
+        ví dụ:
+            int a = 10, b = 20;
+            int max = (a > b) ? a : b; // max sẽ nhận giá trị của b là 20 vì điều kiện a > b sai
+
 
 Làm việc với kiểu dữ liệu char:
 
@@ -183,6 +190,38 @@ Vòng lặp do while:
     
     lệnh do while sẽ thực hiện khối lệnh ít nhất một lần trước khi kiểm tra điều kiện
     thường dùng khi yêu cầu người dùng nhập một dữ liệu hợp lệ nếu không sẽ nhập lại
+
+
+Cấu trúc rẻ nhánh switch case:
+    
+    cú pháp:
+        switch (biểu_thức) {
+            case giá_trị1:
+                // khối lệnh 1
+                break;
+            case giá_trị2:
+                // khối lệnh 2
+                break;
+            ...
+            default:
+                // khối lệnh mặc định
+        }
+
+    biểu_thức trong switch case thường là biến kiểu int hoặc char
+    khi biểu_thức bằng giá_trị của một case nào đó thì sẽ thực hiện khối lệnh của case đó
+    nếu không có case nào đúng thì sẽ thực hiện khối lệnh trong default (nếu có)
+    lệnh break dùng để thoát khỏi cấu trúc switch case, nếu không có lệnh break thì sẽ tiếp tục thực hiện các case phía sau
+
+    khi các case có cùng khối lệnh thì có thể gộp lại với nhau
+    ví dụ:
+        switch (biểu_thức) {
+            case giá_trị1:
+            case giá_trị2:
+                // khối lệnh chung cho giá_trị1 và giá_trị2
+                break;
+            ...
+        }
+       
 
 
 Hàm:
