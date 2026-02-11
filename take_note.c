@@ -235,6 +235,23 @@ Hàm:
     cách khai báo nguyên mẫu hàm:
         kiểu_dữ_liệu tên_hàm(kiểu dữ liệu tham số); // hàm 1
         kiểu_dữ_liệu tên_hàm(kiểu dữ liệu tham số); // hàm 2
+        ví dụ:
+            int add(int a, int b); // nguyên mẫu hàm add
+            int subtract(int a, int b); // nguyên mẫu hàm subtract
+
+            int main(){
+                int x = 5, y = 3;
+                printf("%d", add(x, y)); // gọi hàm add
+                printf("%d", subtract(x, y)); // gọi hàm subtract
+            }
+
+            int add(int a, int b){
+                return a + b;
+            }
+
+            int subtract(int a, int b){
+                return a - b;
+            }
 
     ví dụ khác:
         #include <stdio.h>
@@ -432,3 +449,24 @@ Cấu trúc:
 	
 	    return 0;
     }
+
+
+Bitwise Operation:
+
+    Toán tử AND (&): thực hiện phép AND trên từng bit của hai số
+    Toán tử OR (|): thực hiện phép OR trên từng bit của hai số
+    Toán tử XOR (^): thực hiện phép XOR trên từng bit của hai số
+    Toán tử NOT (~): đảo ngược tất cả các bit của một số
+    Toán tử dịch trái (<<): dịch các bit của một số sang trái một số vị trí nhất định
+    Toán tử dịch phải (>>): dịch các bit của một số sang phải một số vị trí nhất định
+
+    Ví dụ:
+        int a = 5;      // 0000 0101
+        int b = 3;      // 0000 0011
+
+        int andResult = a & b;   // Kết quả: 0000 0001 (1)
+        int orResult = a | b;    // Kết quả: 0000 0111 (7)
+        int xorResult = a ^ b;   // Kết quả: 0000 0110 (6)
+        int notResult = ~a;      // Kết quả: 1111 1010 (-6 trong hệ bù hai)
+        int leftShift = a << 1;  // Kết quả: 0000 1010 (10)
+        int rightShift = a >> 1; // Kết quả: 0000 0010 (2)
