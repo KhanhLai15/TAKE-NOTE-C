@@ -355,6 +355,23 @@ Con trỏ:
                 &a[3] = a + 3 = p + 3 // đều là biến tọa độ (địa chỉ)
                 a[3] = *(a + 3) = *(p + 3) // đều là biến giá trị
 
+    nếu khai báo biến là con trỏ thì khi gán giá trị thì không cần dùng dấu "&" mà chỉ cần gán trực tiếp giá trị cho con trỏ đó
+
+        ví dụ 1:
+            int *p; // khai báo biến con trỏ p
+            scanf("%d", p); // gán giá trị cho con trỏ p mà không cần dùng dấu "&" vì p đã là con trỏ
+            printf("%d", *p); // in ra giá trị của con trỏ p thông qua dấu "*"
+
+        ví dụ 2:
+            void input(int *size){
+                scanf("%d", size); // gán giá trị cho con trỏ size mà không cần dùng dấu "&" vì size đã là con trỏ
+                có câu lệnh tương đương: scanf("%d", &(*size)); // gán giá trị cho con trỏ size thông qua dấu "&" và "*"
+            }
+            int main(){
+                int size;
+                input(&size); // truyền địa chỉ của biến size cho hàm input
+                printf("%d", size); // in ra giá trị của biến size
+            }
 
 Cấp phát động:
     
