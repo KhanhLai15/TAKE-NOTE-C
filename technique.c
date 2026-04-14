@@ -14,3 +14,14 @@ MỘT SỐ KĨ THUẬT LẬP TRÌNH
 
 5. Sử dụng các biến max = -1e9 và min = 1e9 để khởi tạo giá trị cực đại và cực tiểu trong quá trình duyệt mảng hoặc chuỗi. Điều này giúp bạn dễ
     dàng cập nhật giá trị max và min khi duyệt qua các phần tử, mà không cần phải lo lắng về việc khởi tạo chúng với giá trị không hợp lệ.
+
+6. Khi nhập số tước chữ sẽ xảy ra hiện tượng trôi lệnh do scanf() sẽ đọc số và bỏ qua kí tự xuống dòng, sau đó khi dùng fgets() để nhập chuỗi thì fgets() sẽ
+    đọc cả kí tự xuống dòng còn thừa trong bộ đệm và coi đó là một chuỗi rỗng, để khắc phục vấn đề này thì có thể dùng getchar() để loại bỏ kí tự xuống dòng
+    còn thừa trong bộ đệm sau khi dùng scanf()
+    ví dụ:
+        int n;
+        scanf("%d", &n);
+        getchar(); // loại bỏ kí tự xuống dòng còn thừa trong bộ đệm
+        char str[100];
+        fgets(str, sizeof(str), stdin); // nhập chuỗi có dấu cách
+        printf("%s", str); // in chuỗi vừa nhập
